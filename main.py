@@ -72,4 +72,5 @@ with formData:
         text = 'The Forecast of number of orders is '    
         st.markdown(f'<p style="font-family:Trebuchet MS; font-size: 35px; text-align: center"><b>{text}</b></p>', unsafe_allow_html=True)    
         out = pd.DataFrame(model.predict([[homepage, emailer, opArea, cuisine, city_code, region_code, category]])).to_csv(sep='\t', index=False)
-        st.markdown(f'<p style="font-family:Verdana; font-size: 30px;background-color:black; color:white; text-align: center"><b>{out.split()[1]}</b></p>', unsafe_allow_html=True)
+        out = int(float(out.split()[1]))
+        st.markdown(f'<p style="font-family:Verdana; font-size: 30px;background-color:black; color:white; text-align: center"><b>{round(out)}</b></p>', unsafe_allow_html=True)
